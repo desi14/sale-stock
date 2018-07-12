@@ -1,0 +1,78 @@
+	
+	*** Settings ***
+	Library     Selenium2Library
+	Resource    ../components/registration_login_keywords.robot
+	Resource    ../components/news_keywords.robot
+	Resource    ../components/comment_keywords.robot
+	
+	Documentation   testing for Practiceselenium
+	
+	*** Test Cases ***
+	open welcome menu
+	    [Tags] positive test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    click welcome menu
+	    check direct to welcome menu
+	    Close Browser
+	
+	see collection tea
+	    [Tags] positive test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    click welcome menu
+	    click see collection button
+	    check collection of tea
+	    Close Browser
+	
+	
+	see collection tea
+	    [Tags] positive test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    click welcome menu
+	    click see collection button
+	    check collection of tea
+	    Close Browser
+	
+	send message with blank email
+	    [Tags]  negative test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    input name Name        sasa
+	    leave blank email      
+	    input subject          test message
+	    input message          harga teh
+	    click submit
+	             should be display pop up error message
+	              Close Browser
+	
+	
+	send message with blank subject
+	    [Tags]  negative test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    input name Name        sasa
+	    input email            test@gmail.com
+	    leave blank subject          
+	    Click submit
+	    should be display pop up error message
+	    Close Browser
+	
+	send message with blank subject
+	    [Tags]  negative test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    input name Name        sasa
+	    input email            test@gmail.com
+	    input subject          teh oolong
+	     leave blank message
+	    Click submit
+	    should be display pop up error message
+	    Close Browser
+	
+	button submit disfunction
+	    [Tags]  negative test
+	    Open Browser    http://www.practiceselenium.com/   googlechrome
+	    input name Name        sasa
+	    input email            test@gmail.com
+	    input subject          teh oolong
+	     leave blank message
+	    Click submit
+	    should be display pop up error message
+	    Close Browser
+	

@@ -1,0 +1,62 @@
+*** Settings ***
+Library     Selenium2Library
+Resource    ../components/registration_login_keywords.robot
+Resource    ../components/news_keywords.robot
+Resource    ../components/comment_keywords.robot
+
+
+Documentation   testing for Lets talk tea screen
+
+*** Test Cases ***
+send message with blank name
+    [Tags]  negative test
+    Open Browser    http://www.practiceselenium.com/   googlechrome
+    Name leave blank
+    input email      test@gmail.com
+    input subject    test message
+             should be display pop up error message
+    Close Browser
+
+send message with blank email
+    [Tags]  negative test
+    Open Browser    http://www.practiceselenium.com/   googlechrome
+    input name Name        sasa
+    leave blank email      
+    input subject          test message
+    input message          harga teh
+    click submit
+             should be display pop up error message
+              Close Browser
+
+
+send message with blank subject
+    [Tags]  negative test
+    Open Browser    http://www.practiceselenium.com/   googlechrome
+    input name Name        sasa
+    input email            test@gmail.com
+    leave blank subject          
+    Click submit
+    should be display pop up error message
+    Close Browser
+
+send message with blank subject
+    [Tags]  negative test
+    Open Browser    http://www.practiceselenium.com/   googlechrome
+    input name Name        sasa
+    input email            test@gmail.com
+    input subject          teh oolong
+     leave blank message
+    Click submit
+    should be display pop up error message
+    Close Browser
+
+button submit disfunction
+    [Tags]  negative test
+    Open Browser    http://www.practiceselenium.com/   googlechrome
+    input name Name        sasa
+    input email            test@gmail.com
+    input subject          teh oolong
+     leave blank message
+    Click submit
+    should be display pop up error message
+    Close Browser
